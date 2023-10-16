@@ -83,7 +83,8 @@ $descuento = 15;</pre></td>
                 (match ($mes) {
                     4, 6, 9, 11 => ($dia >= 1) && ($dia <= 30),
                     1, 3, 5, 7, 8, 10, 12 => ($dia >= 1) && ($dia <= 30),
-                    2 => ($dia >= 1) && (( ($anyo % 4 == 0 && $anyo % 100 != 0) || $anyo % 400 == 0 )) ? $dia <= 29 : $dia <= 29,
+                    2 => ($dia >= 1) && (( ($anyo % 4 == 0 && $anyo % 100 != 0) 
+                    || $anyo % 400 == 0 )) ? $dia <= 29 : $dia <= 29,
                     default => false
                 })</pre></td>
                     <td class="conversion"><?php
@@ -113,98 +114,6 @@ $descuento = 15;</pre></td>
                         ?></td>
                 </tr>
             </tbody>
-            <tr>
-                <td><pre>$car1 = 'supercali';
-$car2 = 'fragilistico';</pre></td>
-                <td>$car1 .= $car2 .= 'espialidoso'</td>
-                <td class="conversion"><?php
-                    $car1 = 'supercali';
-                    $car2 = 'fragilistico';
-                    var_dump($car1 .= $car2 .= 'espialidoso');
-                    ?></td>
-            </tr>
-            <tr>
-                <td>$nota = 95;</td>
-                <td>$nota >= 90 && $nota <= 100</td>
-                <td class="conversion"><?php
-                    $nota = 95;
-                    var_dump($nota >= 90 && $nota <= 100);
-                    ?></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>!(5 - 3 * 2 / 2 > 7 % 3)</td>
-                <td class="conversion"><?php
-                    var_dump(!(5 - 3 * 2 / 2 > 7 % 3));
-                    ?></td>
-            </tr>
-            <tr>
-                <td><pre>$tiene_tarjeta = true; 
-$tiene_efectivo = false</pre></td>
-                <td>$tiene_tarjeta && !$tiene_efectivo</td>
-                <td class="conversion"><?php
-                    $tiene_tarjeta = true;
-                    $tiene_efectivo = false;
-                    var_dump($tiene_tarjeta && !$tiene_efectivo);
-                    ?></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>true || 1/0</td>
-                <td class="conversion"><?php var_dump(true || 1 / 0); ?></td>
-            </tr>
-            <tr>
-                <td>$edad = 17;</td>
-                <td>($edad >= 18) ? "Si" : "No"</td>
-                <td class="conversion"><?php
-                    $edad = 17;
-                    var_dump(($edad >= 18) ? "Si" : "No");
-                    ?></td>
-            </tr>
-
-            <tr>
-                <td>$ruta = '';</td>
-                <td>$ruta ?: '/'</td>
-                <td class="conversion"><?php
-                    $ruta = null;
-                    var_dump($ruta ?: '/');
-                    ?></td>
-            </tr>
-            <tr>
-                <td>$ruta = null;</td>
-                <td>$ruta ?? '/'</td>
-                <td class="conversion"><?php
-                    $ruta = null;
-                    var_dump($ruta ?? '/');
-                    ?></td>
-            </tr>
-            <tr>
-                <td>$edad = 17;</td>
-                <td>($edad >= 18) ? "Si" : "No"</td>
-                <td class="conversion"><?php
-                    $edad = 17;
-                    var_dump(($edad >= 18) ? "Si" : "No");
-                    ?></td>
-            </tr>
-            <tr>
-                <td>$dia = 'Lunes';</td>
-                <td><pre>match ($day) {
-    'Lunes' => 'Es el comienzo de la semana',
-    'Martes', 'Miercoles', 'Jueves', 'Viernes' => 'Es un día entre semana',
-    'Saturday', 'Sunday' => 'Es el fin de semana',
-    default => 'No es un día de la semana'
-};</pre></td>
-                <td class="conversion"><?php
-                    $dia = 'Lunes';
-                    var_dump(match ($dia) {
-                        'Lunes' => 'Es el comienzo de la semana',
-                        'Martes', 'Miercoles', 'Jueves', 'Viernes' => 'Es un día entre semana',
-                        'Saturday', 'Sunday' => 'Es el fin de semana',
-                        default => 'No es un día de la semana'
-                    });
-                    ?></td>
-            </tr>
-
         </table>
     </body>
 </html>
