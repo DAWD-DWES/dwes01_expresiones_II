@@ -10,7 +10,7 @@
         <h2>Programación con expresiones</h2>
         <table>
             <tbody>
-                <tr><td colspan="3">Obtención de una nota simbólica a partir de una nota numérica</td></tr>
+                <tr><td colspan="3"><b>Obtención de una nota simbólica a partir de una nota numérica</b></td></tr>
                 <tr>
                     <td>$notaNumerica = 85;</td>
                     <td><pre>match (true) {
@@ -36,7 +36,7 @@
                 </tr>
             </tbody>
             <tbody>
-                <tr><td colspan="3">Cálculo del precio final después de aplicar un descuento</td></tr>
+                <tr><td colspan="3"><b>Cálculo del precio final después de aplicar un descuento</b></td></tr>
                 <tr>
                     <td><pre>$precio = 563;
 $descuento = 15;</pre></td>
@@ -51,7 +51,7 @@ $descuento = 15;</pre></td>
             </tbody>
             <tbody>
                 <tr>
-                    <td colspan = "3">Determina si un año es bisiesto</td>
+                    <td colspan = "3"></b>Determina si un año es bisiesto<b></td>
                 </tr>
                 <tr>
                     <td>$anio = 2023;</td>
@@ -64,7 +64,7 @@ $descuento = 15;</pre></td>
             </tbody>
             <tbody>
                 <tr>
-                    <td>Conversión de Celsius a Farenheit</td></tr>
+                    <td><b>Conversión de Celsius a Farenheit</b></td></tr>
                 <tr>
                     <td>$celsius = 25;</td>
                     <td>($celsius * 9/5) + 32</td>
@@ -75,11 +75,25 @@ $descuento = 15;</pre></td>
                 </tr>
             </tbody>
             <tbody>
-                <tr><td colspan = "3">Comprueba si una fecha es correcta</td><tr>
+                <tr>
+                    <td colspan = "3"><b>Obtener las iniciales de un nombre y apellidos</b></td>
+                </tr>
+                <tr>
+                    <td>$nombre = 'Juan Perez Martinez';</td>
+                    <td>str_replace(range('a', 'z'), '', $nombre)</td>
+                    <td class="conversion">
+                        <?php
+                        $nombre = 'Juan Perez Martinez';
+                        echo "Las iniciales de $nombre son " . str_replace(range('a', 'z'), '', $nombre);
+                        ?></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr><td colspan = "3"><b>Comprueba si una fecha es correcta</b></td><tr>
                 <tr><td><pre>$dia = 28;
-        $mes = 2;
-        $anio = 1399;</pre></td>
-                    <td><pre>($anyo > 1000) && ($anyo < 3000) &&
+$mes = 2;
+$anio = 1399;</pre></td>
+                    <td class="conversion"><pre>($anyo > 1000) && ($anyo < 3000) &&
                 (match ($mes) {
                     4, 6, 9, 11 => ($dia >= 1) && ($dia <= 30),
                     1, 3, 5, 7, 8, 10, 12 => ($dia >= 1) && ($dia <= 30),
@@ -100,20 +114,41 @@ $descuento = 15;</pre></td>
                         })) ? "es correcta" : "no es correcta";
                         ?></td>
                 </tr>
+
             <tbody>
                 <tr>
-                    <td>Obtener las iniciales de un nombre y apellidos</td>
+                    <td colspan = "3">Determinar si un DNI es correcto</td>
                 </tr>
                 <tr>
-                    <td>$nombre = 'Juan Perez Martinez';</td>
-                    <td>str_replace(range('a', 'z'), '', $nombre)</td>
+                    <td>$DNI = '44926413G';</td>
+                    <td class="conversion">(strlen($DNI) == 9 && is_numeric ((int)substr($DNI, 0, 8)) && (int)substr($DNI, 0, 8) == substr($DNI, 0, 8) &&
+                        substr($DNI, 8) == substr("TRWAGMYFPDXBNJZSQVHLCKE", ((int)substr($DNI, 0, 8) % 23), 1))</td>
                     <td class="conversion">
                         <?php
-                        $nombre = 'Juan Perez Martinez';
-                        echo "Las iniciales de $nombre son " . str_replace(range('a', 'z'), '', $nombre);
+                        $DNI = '44926413G';
+                        echo "El DNI $DNI es " . ((strlen($DNI) == 9 && is_numeric((int) substr($DNI, 0, 8)) && (int) substr($DNI, 0, 8) == substr($DNI, 0, 8) &&
+                        substr($DNI, 8) == substr("TRWAGMYFPDXBNJZSQVHLCKE", ((int) substr($DNI, 0, 8) % 23), 1)) ? "Correcto" : "Incorrecto");
+                        ?></td>
+                </tr>
+                <tr>
+                    <td colspan = "3">Comprobar si alguien es mayor de edad con su fecha de nacimiento</td>
+                </tr>
+                <tr>
+                    <td><pre>$fecha = '13/05/2001';
+$fechaHoy = '23/10/2023';</pre></td>
+                    <td class="conversion">(substr($fechaHoy, 6, 4) - substr($fechaNac, 6, 4) - 
+                        (substr($fechaHoy, 3, 2) < substr($fechaNac, 3, 2) || substr($fechaHoy, 3, 2) == substr($fechaNac, 3, 2) && substr($fechaHoy, 0, 2) < substr($fechaNac, 0, 2))) > 18</td>
+                    <td class="conversion">
+                        <?php
+                        $fechaNac = '13/05/2001';
+                        $fechaHoy = '23/10/2023';
+                        echo ((substr($fechaHoy, 6, 4) - substr($fechaNac, 6, 4) -
+                        (substr($fechaHoy, 3, 2) < substr($fechaNac, 3, 2) || substr($fechaHoy, 3, 2) == substr($fechaNac, 3, 2) && substr($fechaHoy, 0, 2) < substr($fechaNac, 0, 2))) > 18 ? "Es mayor de edad" : "Es menor de edad");
                         ?></td>
                 </tr>
             </tbody>
         </table>
     </body>
 </html>
+
+
