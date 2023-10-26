@@ -54,10 +54,10 @@ $descuento = 15;</pre></td>
                     <td colspan = "3"></b>Determina si un año es bisiesto<b></td>
                 </tr>
                 <tr>
-                    <td>$anio = 2023;</td>
+                    <td>$anio = 2024;</td>
                     <td>($anio % 4 == 0 && $anio % 100 != 0) || ($anio % 400 == 0)</td>
                     <td class="conversion"><?php
-                        $anio = 2023;
+                        $anio = 2024;
                         echo "El año $anio " . ((($anio % 4 == 0 && $anio % 100 != 0) || ($anio % 400 == 0)) ? "es bisiesto" : "no es bisiesto");
                         ?></td>
                 </tr>
@@ -89,7 +89,7 @@ $descuento = 15;</pre></td>
                 </tr>
             </tbody>
             <tbody>
-                <tr><td colspan = "3"><b>Comprueba si una fecha es correcta</b></td><tr>
+                <tr><td colspan = "3"><b>Comprueba si una fecha es correcta entre el año 1000 y 3000</b></td><tr>
                 <tr><td><pre>$dia = 28;
 $mes = 2;
 $anio = 1399;</pre></td>
@@ -109,7 +109,7 @@ $anio = 1399;</pre></td>
                         (match ($mes) {
                             4, 6, 9, 11 => ($dia >= 1) && ($dia <= 30),
                             1, 3, 5, 7, 8, 10, 12 => ($dia >= 1) && ($dia <= 30),
-                            2 => ($dia >= 1) && (( ($anio % 4 == 0 && $anio % 100 != 0) || $anio % 400 == 0 )) ? $dia <= 29 : $dia <= 29,
+                            2 => ($dia >= 1) && (( ($anio % 4 == 0 && $anio % 100 != 0) || $anio % 400 == 0 )) ? $dia <= 29 : $dia <= 28,
                             default => false
                         })) ? "es correcta" : "no es correcta";
                         ?></td>
