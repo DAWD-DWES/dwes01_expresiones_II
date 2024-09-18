@@ -13,7 +13,7 @@
                 <tr><td colspan="3"><b>Obtención de una nota simbólica a partir de una nota numérica</b></td></tr>
                 <tr>
                     <td>$notaNumerica = 85;</td>
-                    <td><pre>match (true) {
+                    <td class="respuesta"><pre>match (true) {
     $notaNumerica >= 90 => 'A',
     $notaNumerica >= 80 => 'B',
     $notaNumerica >= 70 => 'C',
@@ -21,7 +21,7 @@
     $notaNumerica < 60 => 'F',
     default => 'Nota inválida'
 }</pre></td>
-                    <td class="conversion">
+                    <td class="respuesta">
                         <?php
                         $notaNumerica = 85;
                         echo "La nota corresponde a ", match (true) {
@@ -40,8 +40,8 @@
                 <tr>
                     <td><pre>$precio = 563;
 $descuento = 15;</pre></td>
-                    <td>$precio * (1 - $descuento / 100);</td>
-                    <td class="conversion">
+                    <td class="respuesta">$precio * (1 - $descuento / 100);</td>
+                    <td class="respuesta">
                         <?php
                         $precio = 563;
                         $descuento = 15;
@@ -51,12 +51,12 @@ $descuento = 15;</pre></td>
             </tbody>
             <tbody>
                 <tr>
-                    <td colspan = "3"></b>Determina si un año es bisiesto<b></td>
+                    <td colspan = "3"><b>Determina si un año es bisiesto</b></td>
                 </tr>
                 <tr>
                     <td>$anio = 2024;</td>
-                    <td>($anio % 4 == 0 && $anio % 100 != 0) || ($anio % 400 == 0)</td>
-                    <td class="conversion"><?php
+                    <td class="respuesta">($anio % 4 == 0 && $anio % 100 != 0) || ($anio % 400 == 0)</td>
+                    <td class="respuesta"><?php
                         $anio = 2024;
                         echo "El año $anio " . ((($anio % 4 == 0 && $anio % 100 != 0) || ($anio % 400 == 0)) ? "es bisiesto" : "no es bisiesto");
                         ?></td>
@@ -67,8 +67,8 @@ $descuento = 15;</pre></td>
                     <td><b>Conversión de Celsius a Farenheit</b></td></tr>
                 <tr>
                     <td>$celsius = 25;</td>
-                    <td>($celsius * 9/5) + 32</td>
-                    <td class="conversion"><?php
+                    <td class="respuesta">($celsius * 9/5) + 32</td>
+                    <td class="respuesta"><?php
                         $celsius = 25;
                         echo "$celsius grados Celsius corresponden a " . ($celsius * 9 / 5) + 32 . " grados Farenheit";
                         ?></td>
@@ -80,8 +80,8 @@ $descuento = 15;</pre></td>
                 </tr>
                 <tr>
                     <td>$nombre = 'Juan Perez Martinez';</td>
-                    <td>str_replace(range('a', 'z'), '', $nombre)</td>
-                    <td class="conversion">
+                    <td class="respuesta">str_replace(range('a', 'z'), '', $nombre)</td>
+                    <td class="respuesta">
                         <?php
                         $nombre = 'Juan Perez Martinez';
                         echo "Las iniciales de $nombre son " . str_replace(range('a', 'z'), '', $nombre);
@@ -93,7 +93,7 @@ $descuento = 15;</pre></td>
                 <tr><td><pre>$dia = 28;
 $mes = 2;
 $anio = 1399;</pre></td>
-                    <td class="conversion"><pre>($anyo > 1000) && ($anyo < 3000) &&
+                    <td class="respuesta"><pre>($anyo > 1000) && ($anyo < 3000) &&
                 (match ($mes) {
                     4, 6, 9, 11 => ($dia >= 1) && ($dia <= 30),
                     1, 3, 5, 7, 8, 10, 12 => ($dia >= 1) && ($dia <= 30),
@@ -101,7 +101,7 @@ $anio = 1399;</pre></td>
                     || $anyo % 400 == 0 )) ? $dia <= 29 : $dia <= 29,
                     default => false
                 })</pre></td>
-                    <td class="conversion"><?php
+                    <td class="respuesta"><?php
                         $dia = 28;
                         $mes = 2;
                         $anio = 1399;
@@ -117,13 +117,13 @@ $anio = 1399;</pre></td>
 
             <tbody>
                 <tr>
-                    <td colspan = "3">Determinar si un DNI es correcto</td>
+                    <td colspan = "3"><b>Determinar si un DNI es correcto</b></td>
                 </tr>
                 <tr>
                     <td>$DNI = '44926413G';</td>
-                    <td class="conversion">(strlen($DNI) == 9 && is_numeric ((int)substr($DNI, 0, 8)) && (int)substr($DNI, 0, 8) == substr($DNI, 0, 8) &&
+                    <td class="respuesta">(strlen($DNI) == 9 && is_numeric ((int)substr($DNI, 0, 8)) && (int)substr($DNI, 0, 8) == substr($DNI, 0, 8) &&
                         substr($DNI, 8) == substr("TRWAGMYFPDXBNJZSQVHLCKE", ((int)substr($DNI, 0, 8) % 23), 1))</td>
-                    <td class="conversion">
+                    <td class="respuesta">
                         <?php
                         $DNI = '44926413G';
                         echo "El DNI $DNI es " . ((strlen($DNI) == 9 && is_numeric((int) substr($DNI, 0, 8)) && (int) substr($DNI, 0, 8) == substr($DNI, 0, 8) &&
@@ -131,14 +131,14 @@ $anio = 1399;</pre></td>
                         ?></td>
                 </tr>
                 <tr>
-                    <td colspan = "3">Comprobar si alguien es mayor de edad con su fecha de nacimiento</td>
+                    <td colspan = "3"><b>Comprobar si alguien es mayor de edad con su fecha de nacimiento</b></td>
                 </tr>
                 <tr>
                     <td><pre>$fecha = '13/05/2001';
 $fechaHoy = '23/10/2023';</pre></td>
-                    <td class="conversion">(substr($fechaHoy, 6, 4) - substr($fechaNac, 6, 4) - 
+                    <td class="respuesta">(substr($fechaHoy, 6, 4) - substr($fechaNac, 6, 4) - 
                         (substr($fechaHoy, 3, 2) < substr($fechaNac, 3, 2) || substr($fechaHoy, 3, 2) == substr($fechaNac, 3, 2) && substr($fechaHoy, 0, 2) < substr($fechaNac, 0, 2))) > 18</td>
-                    <td class="conversion">
+                    <td class="respuesta">
                         <?php
                         $fechaNac = '13/05/2001';
                         $fechaHoy = '23/10/2023';
